@@ -31,3 +31,12 @@ def test_ios():
 def test_web():
     print("test weh")
     assert 2 == 2
+
+"""
+去掉  执行pytest -vs test_mark_case.py -m ios 命令后，出现的 1 warning in 0.01s  
+创建pytest.ini文件
+[pytest]
+markers = ios
+          android
+          web
+"""
