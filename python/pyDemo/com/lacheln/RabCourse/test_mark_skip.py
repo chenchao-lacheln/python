@@ -11,7 +11,7 @@
 '''
 import sys
 
-import pytest
+import pyDemo
 
 '''
 Skip使用场景
@@ -22,18 +22,18 @@ Skip使用场景
     如果测试数据是从数据库中取到的，
     ■连接数据库的功能如果返回结果未成功就跳过，因为执行也都报错
 ●解决1:添加装饰器
-    @pytest.mark.skip
-    @pytest●mark.skipif
+    @pyDemo.mark.skip
+    @pyDemo●mark.skipif
 ●解决2:代码中添加跳过代码
-    ■pytest.skip( reason)
+    ■pyDemo.skip( reason)
 '''
 
-@pytest.mark.skip
+@pyDemo.mark.skip
 def test_a():
     print("代码未开发完")
     assert True
 
-@pytest.mark.skip(reason = "代码没有实现")
+@pyDemo.mark.skip(reason ="代码没有实现")
 def test_b():
     assert True
 
@@ -44,32 +44,32 @@ def check_login():
 def test_login():
     print("start")
     if not check_login():
-        pytest.skip("not login")
+        pyDemo.skip("not login")
     print("end")
 
-#pytest.mark.skipif()
+#pyDemo.mark.skipif()
 
 print(sys.platform)
-@pytest.mark.skipif(sys.platform == "mac",reason="dose not run on mac")
+@pyDemo.mark.skipif(sys.platform == "mac", reason="dose not run on mac")
 def test_platform():
     assert True
 
-@pytest.mark.skipif(sys.version == (3,5),reason="requires python3.6 or higher")
+@pyDemo.mark.skipif(sys.version == (3, 5), reason="requires python3.6 or higher")
 def test_version():
     assert True
 
 '''
 ●与skip类似，预期结果为fail，
 标记用例为fail 
-用法:添加装饰器@pytest.mark.xfail
+用法:添加装饰器@pyDemo.mark.xfail
 '''
 
 #XFAIL
-@pytest.mark.xfail
+@pyDemo.mark.xfail
 def test_xfail():
     assert 1 == 2
 
 #XPASS
-@pytest.mark.xfail
+@pyDemo.mark.xfail
 def test_xfail():
     assert 1 == 1

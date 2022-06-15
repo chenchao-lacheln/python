@@ -19,7 +19,7 @@
 
 安装
     前提：已配置python环境（python > 3.6V，3.6自带pip）
-    第一种方式：pip install pytest  /  pip install -U pytest （-u在已有版本上进行更新）
+    第一种方式：pip install pyDemo  /  pip install -U pyDemo （-u在已有版本上进行更新）
     pycharm直接安装
 
 python3 和pip3 配置本地默认
