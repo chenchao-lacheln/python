@@ -2,14 +2,15 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2022/6/16 01:56
 # @Author  : Lacheln
+import pytest
 import yaml
 
-import pyDemo
+
 
 
 # python3.X只能使用pip install pyyaml 来安装。
 class TestYaml_:
-    @pyDemo.mark.parametrize("env", yaml.safe_load(open("./env.yml")))
+    @pytest.mark.parametrize("env", yaml.safe_load(open("./env.yml")))
     def test_yaml_(self,env):
         if "test" in env:
             print("这是测试环境")
