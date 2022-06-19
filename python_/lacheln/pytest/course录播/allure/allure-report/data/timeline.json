@@ -1,0 +1,65 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "children" : [ {
+    "name" : "lachelndeMacBook-Pro.local",
+    "children" : [ {
+      "name" : "49564-MainThread",
+      "children" : [ {
+        "name" : "test_fail",
+        "uid" : "7bbcd81911b7496d",
+        "parentUid" : "bb4f7888e2e510be8b97d6c7e6342d4d",
+        "status" : "failed",
+        "time" : {
+          "start" : 1655664766723,
+          "stop" : 1655664766723,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_success",
+        "uid" : "ec73e007d2810a6b",
+        "parentUid" : "bb4f7888e2e510be8b97d6c7e6342d4d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1655664766722,
+          "stop" : 1655664766722,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_broken",
+        "uid" : "fed132c319a71efb",
+        "parentUid" : "bb4f7888e2e510be8b97d6c7e6342d4d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1655664766742,
+          "stop" : 1655664766742,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_skip",
+        "uid" : "e5479825793b23b7",
+        "parentUid" : "bb4f7888e2e510be8b97d6c7e6342d4d",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1655664766741,
+          "stop" : 1655664766741,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "bb4f7888e2e510be8b97d6c7e6342d4d"
+    } ],
+    "uid" : "64d1e831640ba7fb1c2ba0994b7eb604"
+  } ],
+  "name" : "timeline"
+}
