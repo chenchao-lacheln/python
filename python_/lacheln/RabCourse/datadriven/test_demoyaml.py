@@ -17,4 +17,4 @@ class TestYaml_:
             print("测试环境的IP = ",env['test'])
         elif "dev" in env:
             print("这是开发环境")
-            print("开发环境的IP = ", env['dev'])
+            print("开发环境的git IP = ", env['dev'])
