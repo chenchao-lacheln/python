@@ -10,7 +10,7 @@ import yaml
 
 # python3.X只能使用pip install pyyaml 来安装。
 class TestYaml_:
-    @pytest.mark.parametrize("env", yaml.safe_load(open("./env.yml")))
+    @pytest.mark.parametrize("env", yaml.safe_load(open("env.yml")))
     def test_yaml_(self,env):
         if "test" in env:
             print("这是测试环境")
