@@ -11,7 +11,7 @@
 '''
 import sys
 
-import pyDemo
+import pytest
 
 '''
 Skip使用场景
@@ -50,11 +50,11 @@ def test_login():
 #pyDemo.mark.skipif()
 
 print(sys.platform)
-@pyDemo.mark.skipif(sys.platform == "mac", reason="dose not run on mac")
+@pytest.mark.skipif(sys.platform == "mac", reason="dose not run on mac")
 def test_platform():
     assert True
 
-@pyDemo.mark.skipif(sys.version == (3, 5), reason="requires python3.6 or higher")
+@pytest.mark.skipif(sys.version == (3, 5), reason="requires python3.6 or higher")
 def test_version():
     assert True
 
@@ -65,11 +65,11 @@ def test_version():
 '''
 
 #XFAIL
-@pyDemo.mark.xfail
+@pytest.mark.xfail
 def test_xfail():
     assert 1 == 2
 
 #XPASS
-@pyDemo.mark.xfail
+@pytest.mark.xfail
 def test_xfail():
     assert 1 == 1
