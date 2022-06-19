@@ -52,3 +52,6 @@
 #     第一种是在idea中打开
 #     第二种 allure open -h 127.0.0.1 -p 8883 ./allure-report/
 
+# 清空 生成的 result 记录  --clean-alluredir
+# pytest test_allure_title.py --alluredir ./result -vs --clean-alluredir
+
