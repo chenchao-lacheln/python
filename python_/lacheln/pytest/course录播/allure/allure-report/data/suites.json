@@ -1,0 +1,65 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "children" : [ {
+    "name" : "python_.lacheln.pytest.course录播.allure",
+    "children" : [ {
+      "name" : "test_allure_demo",
+      "children" : [ {
+        "name" : "test_success",
+        "uid" : "ec73e007d2810a6b",
+        "parentUid" : "0ed6086be73d436adf582730755cba24",
+        "status" : "passed",
+        "time" : {
+          "start" : 1655664766722,
+          "stop" : 1655664766722,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_fail",
+        "uid" : "7bbcd81911b7496d",
+        "parentUid" : "0ed6086be73d436adf582730755cba24",
+        "status" : "failed",
+        "time" : {
+          "start" : 1655664766723,
+          "stop" : 1655664766723,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_skip",
+        "uid" : "e5479825793b23b7",
+        "parentUid" : "0ed6086be73d436adf582730755cba24",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1655664766741,
+          "stop" : 1655664766741,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_broken",
+        "uid" : "fed132c319a71efb",
+        "parentUid" : "0ed6086be73d436adf582730755cba24",
+        "status" : "broken",
+        "time" : {
+          "start" : 1655664766742,
+          "stop" : 1655664766742,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "0ed6086be73d436adf582730755cba24"
+    } ],
+    "uid" : "062a68ec99f71d67023ddc257076d6cb"
+  } ],
+  "name" : "suites"
+}
