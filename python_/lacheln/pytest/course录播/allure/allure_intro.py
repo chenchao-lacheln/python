@@ -55,3 +55,14 @@
 # 清空 生成的 result 记录  --clean-alluredir
 # pytest test_allure_title.py --alluredir ./result -vs --clean-alluredir
 
+# test_allure_links 中的 @allure.issue("140","BUG地址")  添加链接执行命令
+#       pytest test_allure_links.py --alluredir ./result -vs --allure-link-pattern=issue:https://www.baidu.com/{}
+
+# pytest --help | grep allure  查看帮助文档
+
+# 通过 --allure-severities=critical,normal 指定优先级别 运行测试用例
+# pytest test_allure_severity.py  --allure-severities=critical,normal --alluredir ./result
+
+# 通过  --allure-features="登录模块" 指定模块运行测试用例
+# pytest test_allure_feature.py --allure-features="登录模块" --alluredir ./result --clean-alluredir
+

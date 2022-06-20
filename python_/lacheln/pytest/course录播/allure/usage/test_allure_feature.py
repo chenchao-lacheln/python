@@ -36,10 +36,14 @@ class TestSearch():
 class TestLogin():
     @allure.story("登录成功")
     def test_login_success(self):
-        print("打开应用")
-        print("登录页面")
-        print("输入用户名和密码")
-        print("这是登录测试用例，登录成功")
+        with allure.step("步骤一：打开应用"):
+            print("打开应用")
+        with allure.step("步骤二：进入登录页面"):
+            print("登录页面")
+        with allure.step("步骤三：输入用户信息"):
+            print("输入用户名和密码")
+        with allure.step("步骤四：进入成功页面"):
+            print("这是登录测试用例，登录成功")
 
     @allure.story("登录成功")
     def test_login_success_a(self):
