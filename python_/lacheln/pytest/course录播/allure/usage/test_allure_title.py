@@ -4,7 +4,6 @@
 # @Author  : Lacheln
 
 '''设置标题'''
-
 import allure
 class TestSearch():
     @allure.title("ios")

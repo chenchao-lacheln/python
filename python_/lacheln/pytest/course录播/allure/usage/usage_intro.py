@@ -19,3 +19,12 @@
     # @allure.severity()      用例等级         blocker、critical 、normal、minor、trivial
     # @allure.link()          定义连接         用于定义一个需要在测试报告中展示的连接
     # @allure.attachment()    附件             添加测试报告附件
+
+
+# 总结
+
+# ●支持多平台
+# ●Java语言开发的，支持多语言pytest, JaveScript, PHP, ruby等
+# 可以为dev/qa提供详尽的的测试报告、测试步骤、log、 标题、优先级、附件等等
+# ●也可以为管理理层提供high level统计报告
+# ●可以集成到Jenkins,展示项目的趋势图
