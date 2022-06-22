@@ -7,6 +7,7 @@
 import pytest
 
 from lacheln.pytest.live_course.scrip.calculator import Calculator
+
 '''
 测试用例编写
 ●题目:
@@ -25,17 +26,21 @@ def teardown_module():
     # 清理数据
     print("结束测试")
 
-class TestAdd():
+# 封装
+class Base:
 
     def setup_class(self):
         # 实例化
-        self.cal = Calculator();
+        self.cal = Calculator()
 
     def setup(self):
         print("开始计算")
 
     def teardown(self):
         print("结束计算")
+
+# 继承
+class TestAdd(Base):
 
     @pytest.mark.P0
     def test_add1(self):
@@ -52,11 +57,65 @@ class TestAdd():
     @pytest.mark.P0
     def test_add3(self):
         result = self.cal.add(10, 0.02)
-        expect = 0.01
+        expect = 10.02
         assert result == expect
 
-    @pytest.mark.P0
-    def test_add3(self):
+    @pytest.mark.P1
+    def test_add4(self):
         result = self.cal.add(98.99, 99)
-        expect = 0.01
+        expect = 197.99
         assert result == expect
+
+    @pytest.mark.P1
+    def test_add5(self):
+        result = self.cal.add(99, 98.99)
+        expect = 197.99
+        assert result == expect
+
+    @pytest.mark.P1
+    def test_add6(self):
+        result = self.cal.add(-98.99, -99)
+        expect = -197.99
+        assert result == expect
+
+    @pytest.mark.P1
+    def test_add7(self):
+        result = self.cal.add(-99, -98.99)
+        expect = -197.99
+        assert result == expect
+
+    @pytest.mark.P1
+    def test_add8(self):
+        result = self.cal.add(99.01, 0)
+        expect = "参数大小超出范围"
+        assert result == expect
+
+    @pytest.mark.P1
+    def test_add9(self):
+        result = self.cal.add(-99.01, -1)
+        expect = "参数大小超出范围"
+        assert result == expect
+
+    @pytest.mark.P1
+    def test_add10(self):
+        result = self.cal.add(2, 99.01)
+        expect = "参数大小超出范围"
+        assert result == expect
+
+    @pytest.mark.P1
+    def test_add11(self):
+        result = self.cal.add(1, -99.01)
+        expect = "参数大小超出范围"
+        assert result == expect
+
+    @pytest.mark.P1
+    def test_add12(self):
+        #第一种方式
+        # try:
+        #     result = self.cal.add("文", 9.3)
+        # except TypeError as e:
+        #     print(e)
+
+        #第二种方式 pytest.raises 捕获异常
+        with pytest.raises(TypeError) as e:
+            result = self.cal.add("文",9.3)
