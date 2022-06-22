@@ -26,9 +26,9 @@ def teardown_module():
     # 清理数据
     print("结束测试")
 
-# 封装
-class Base:
 
+# 继承
+class TestAdd():
     def setup_class(self):
         # 实例化
         self.cal = Calculator()
@@ -38,9 +38,6 @@ class Base:
 
     def teardown(self):
         print("结束计算")
-
-# 继承
-class TestAdd(Base):
 
     @pytest.mark.P0
     def test_add1(self):
