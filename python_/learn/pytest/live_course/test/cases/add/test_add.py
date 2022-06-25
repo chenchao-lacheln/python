@@ -3,10 +3,6 @@
 # @Time    : 2022/6/22 01:12
 # @Author  : Lacheln
 
-# 测试相加方法
-import pytest
-
-from learn.pytest.live_course.scrip.calculator import Calculator
 
 '''
 测试用例编写
@@ -22,22 +18,33 @@ from learn.pytest.live_course.scrip.calculator import Calculator
     C、灵活使用测试装置
 '''
 
+import pytest
+import sys
+# sys.path.append('../../../../../..')
+
+sys.path.append('../../../../../..')
+
+from learn.pytest.live_course.test.base.base import Base
+
+
+
 def teardown_module():
     # 清理数据
     print("结束测试")
 
 # 封装
-class Base:
+# class Base:
+#
+#     def setup_class(self):
+#         # 实例化
+#         self.cal = Calculator()
+#
+#     def setup(self):
+#         print("开始计算")
+#
+#     def teardown(self):
+#         print("结束计算")
 
-    def setup_class(self):
-        # 实例化
-        self.cal = Calculator()
-
-    def setup(self):
-        print("开始计算")
-
-    def teardown(self):
-        print("结束计算")
 
 # 继承
 class TestAdd(Base):
