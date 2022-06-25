@@ -22,7 +22,7 @@ class TestLogin():
             print("打开应用")
         with allure.step("步骤二：进入登录页面"):
             print("登录页面")
-            allure.attach.file("/Users/lacheln/Pictures/1.jpg",
+            allure.attach.file("/Users/learn/Pictures/1.jpg",
                                name="截图",
                                attachment_type = allure.attachment_type.JPG,
                                extension=".jpg")

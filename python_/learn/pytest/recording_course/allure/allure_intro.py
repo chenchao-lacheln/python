@@ -17,7 +17,7 @@
 # 2.13.8  Mac下载.tgz包
 # https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.13.8/
 #allure
-# PATH="/Users/lacheln/software/allure-2.13.8/bin:${PATH}"
+# PATH="/Users/learn/software/allure-2.13.8/bin:${PATH}"
 # export PATH
 # allure --version
 
