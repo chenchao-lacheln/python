@@ -1,0 +1,95 @@
+
+fixture的特点和优势
+    1、命令灵活:对于setup,teardown,可以不起这两个名字
+    2、数据共享:在conftest.py配置里写方法可以实现数据共享，不需要import导入。可以跨文件共享
+    3、scope的层次及神奇的yield组合相当于各种setup和teardown
+    4、实现参数化
+
+fixture在自动化中的应用——基本用法（模拟setup） test_fixture1.py
+
+    ：场景：
+        测试用例执行时，有的用例需要登陆才能执行，有些用例不需要登陆。
+        setup和teardown无法满足。fixture 可以。默认scope (范围) function
+    ●步骤:
+        1.导入pytest
+        2.在登陆的函数上面加@pytest.fnxture()
+        3.在要使用的测试方法中传入(登陆函数名称)，就先登陆
+        4.不传入的就不登陆直接执行测试方法。
+
+
+
+fixture在自动化中的应用——作用域  test_fixture2.py
+
+    取值         范围       说明
+    function    函数级     每一个函数或方法都会调用
+    class       类级别     每个测试类只运行一次
+    module      模块级     每一个.py文件调用一 -次
+    package     包级       每一个python包只调用一次(暂不支持)
+    session     会话级     每次会话只需要运行一次，会话内所有方法及类，模块都共享这个方法
+
+
+fixture在自动化中的应用——yield关键字（模拟teardown）  test_fixture3.py
+
+    ●场景:
+        你已经可以将测试方法[前要执行的或依赖的]解决了,
+        测试方法后销毁清除数据的要如何进行呢?
+        场景说明：读取一个几个G大的文件，一次性读取耗内存，希望一行一行读取
+        场景说明：测试过程中，需要通过登录，获取登录的token和用户名，来进行接下来的测试场景
+    ●解决:
+        通过在fxture函数中加入yield关键字，yield是调用第一次返回结果，
+        第二次执行它下面的语句返回。
+    步骤:
+        在@pytest.fxture(scope=module)。
+        在登陆的方法中加yield,之后加销毁清除的步骤
+
+
+fixture在自动化中的应用——数据共享  conftest.py  test_fixture4.py
+
+    场景:
+        你与其他测试工程师合作一起开 发时，公共的模块要在不同文件中，要在大家都访问到的地方。
+    解决:
+        使用conftest.py这个文件进行数据共享，并且他可以放在不同位置起着不同的范围共享作用。
+    前提:
+        conftest 文件名是不能换的
+        放在项目下是全局的数据共享的地方
+    .执行:
+        系统执行到参数login时先从本模块中查找是否有这个名字的变量什么的，
+        之后在conftest.py中找是否有。
+    步骤:
+        将登陆模块带@pytest.fixture写在conftest.py
+
+
+fixture在自动化中的应用——自动应用  conftest.py  test_fixture5.py
+
+    场景:
+        不想原测试方法有任何改动，或全部都自动实现自动应用，
+        没特例，也都不需要返回值时可以选择自动应用
+    解决:
+        使用fixture中参数autouse=True实现
+    步骤:
+        在方法上面加@pytest . fixture ( autouse=True )
+
+
+
+fixture在自动化中的应用——参数化    test_fixture6.py
+
+    场景:
+        测试离不开数据，为了数据灵活，一般数据都是通过参数传的
+    解决:
+        fixture通过固定参数request传递
+    步骤:
+        在fixture中增加@pytest.fxture(params=[1,2,3,'linda'])
+        在方法参数写request,方法体里面使用request.param接收参数
+
+    数据驱动：将数据保存在一个文件中，来驱动测试用例的执行
+    参数化：将测试用例的每个参数提取出来，每一个参数代表一个测试用例，进行执行
+
+
+总结
+
+    1.模拟setup, teardown (一个用例可以引用多个fxture)
+    2.yield的用法
+    3.作用域( session, module, 类级别，方法级别)
+    4.自动执行(autouse 参数)
+    5.conftest.py用法，一般会把fxture写在conftest.py文件中(这个文件名字是固定的，不能改)
+    6.实现参数化
