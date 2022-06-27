@@ -1,0 +1,3 @@
+[32mINFO    [0m learn.pytest.live_course.test.utils.log_utils:base.py:14 实例化 calc 对象
+[32mINFO    [0m learn.pytest.live_course.test.utils.log_utils:base.py:18 开始计算
+[32mINFO    [0m learn.pytest.live_course.test.utils.log_utils:base.py:22 结束计算
