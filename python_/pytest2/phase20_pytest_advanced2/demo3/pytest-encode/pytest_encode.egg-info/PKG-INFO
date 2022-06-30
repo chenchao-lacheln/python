@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: pytest-encode
+Version: 1.0
+Summary: set your encoding and logger
+Home-page: httpls;llgithub,com/xxx/pytest-encode
+Author: xixi
+Author-email: 418974188@qq.com
+License: proprietary
+Keywords: pytest,py.test,pytest_encode
+Platform: UNKNOWN
+Classifier: Framework :: Pytest
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Develosting
+Classifier: Programming Language:: Python :: 3.pment :: Te8
+
+Show Chinese for your mark. parametrize(). Define logger variable . Define logger variable for getting your log
+
