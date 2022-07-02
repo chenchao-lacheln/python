@@ -429,3 +429,47 @@
 [2022-06-26 02:38:59] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
 [2022-06-26 02:38:59] [INFO] [test_add_params.py]/[line: 153]/[test_add12] 输入数据:文,9.3,预期结果:TypeError 
 [2022-06-26 02:38:59] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:09:09] [INFO] [base.py]/[line: 14]/[setup_class] 实例化 calc 对象 
+[2022-07-02 17:09:09] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:09:09] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:09:09] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:09:09] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:09:09] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:09:09] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:09:09] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:09:09] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:09:09] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:09:09] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:11:14] [INFO] [base.py]/[line: 14]/[setup_class] 实例化 calc 对象 
+[2022-07-02 17:11:14] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:11:14] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:11:14] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:11:14] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:11:14] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:11:14] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:11:14] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:11:14] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:14:22] [INFO] [base.py]/[line: 14]/[setup_class] 实例化 calc 对象 
+[2022-07-02 17:14:22] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:14:22] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:19:42] [INFO] [base.py]/[line: 14]/[setup_class] 实例化 calc 对象 
+[2022-07-02 17:19:42] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:19:42] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:19:42] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:19:42] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:19:42] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:19:42] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:19:42] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:19:42] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:22:48] [INFO] [base.py]/[line: 14]/[setup_class] 实例化 calc 对象 
+[2022-07-02 17:22:48] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:22:48] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:22:48] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:22:48] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:22:48] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:22:48] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:22:48] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:22:48] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
+[2022-07-02 17:38:00] [INFO] [base.py]/[line: 14]/[setup_class] 实例化 calc 对象 
+[2022-07-02 17:38:00] [INFO] [base.py]/[line: 18]/[setup] 开始计算 
+[2022-07-02 17:38:00] [INFO] [base.py]/[line: 22]/[teardown] 结束计算 
