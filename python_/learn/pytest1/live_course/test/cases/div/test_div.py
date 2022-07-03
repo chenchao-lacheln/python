@@ -2,10 +2,13 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2022/7/2 16:36
 # @Author  : Lacheln
+import sys
+
 import pytest
 
 from learn.pytest1.live_course.test.base.base import Base
 
+sys.path.append('../../../../../../..')
 
 class TestDiv(Base):
     @pytest.mark.P0

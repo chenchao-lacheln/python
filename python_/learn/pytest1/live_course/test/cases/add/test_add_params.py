@@ -22,11 +22,16 @@ import allure
 import pytest
 import sys
 # sys.path.append('../../../../../..')
+import yaml
+
+from learn.pytest1.live_course.test.conftest import get_adddata
 from learn.pytest1.live_course.test.utils.log_utils import logger
 
 sys.path.append('../../../../../..')
 
 from learn.pytest1.live_course.test.base.base import Base
+
+
 
 
 
@@ -39,6 +44,8 @@ def teardown_module():
 # 安装java，安装allure 安装allure-pytest1
 @allure.feature("相加功能")
 class TestAdd(Base):
+    add_P0_data = get_adddata("add","P0")[0]
+    add_P0_ids = get_adddata("add","P0")[1]
 
     @allure.story("相加P0级别用例")
     @pytest.mark.P0
@@ -76,17 +83,7 @@ class TestAdd(Base):
 
     @allure.feature("相加P1级别用例")
     @pytest.mark.P1
-    @pytest.mark.parametrize("a,b,expect",[[98.99, 99,197.99],
-                                           [99, 98.99,197.99],
-                                           [-98.99, -99,-197.99],
-                                           [-99, -98.99,-197.99],
-                                           [99.01, 0, "参数大小超出范围"],
-                                           [2, 99.01, "参数大小超出范围"],
-                                           [2, 99.01, "参数大小超出范围"],
-                                           [1, -99.01, "参数大小超出范围"],
-                                           ],
-                             ids=["int_float2","int_float3","int_float4","int_float5",
-                                  "int_float6","int_float7","int_float8","int_float9"])
+    @pytest.mark.parametrize("a,b,expect",add_P0_data,ids=add_P0_ids)
     def test_add4(self,a,b,expect):
         logger.info(f"输入数据:{a},{b},期望结果:{expect}")
         with allure.step("step1:相加操作"):
