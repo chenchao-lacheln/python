@@ -1,0 +1,115 @@
+
+pytest --collect-only  收集测试用例
+
+●pytest 插件分类
+
+    外部插件: pip install安装的插件 （第三方库）
+    本地插件: pytest 自动模块发现机制(conftest.py存 放的)
+    内置插件（hook函数-->>本节课内容）:代码内部的_ pytest目录加载
+
+    pytest 常用的插件  这个网址可以搜索插件 -->> https://pypi.org/  搜索pytest 或者pytest order 控制顺序
+
+        pip install pytest-ordering         控制用例的执行顺序 (重点)
+        pip insta1l pytest-xdist            分布式并发执行测试用例(重 点)
+        pip install pytest-dependency       控制用例的依赖关系( 了解)
+        pip install pytest-rerunfailures    失败重跑(了 解)
+        pip install pytest-assume           多重较验(了 解)
+        pip install pytest-random-order     用例随机执行 (了 解)
+        pip install pytest-htm1             测试报告(了 解)
+
+
+    pytest 执行顺序控制  test_demo1.py
+        场景:
+            对于集成测试，经常会有上下文依赖关系的测试用例。
+            比如10个步骤，拆成10条case,这时候能知道到底执行到哪步报错。
+            用例默认执行顺序:自上而下执行
+        解决:
+            可以通过setup,teardown和fixture来解决。也可以使用对应的插件。
+        安装: pip install pytest-ordering
+        用法: @pytest.mark.run(order=2)
+        注意:多个插件装饰器(>2)的时候，有可能会发生冲突
+
+    pytest 并行与分布式执行 test_demo2.py
+        场景1:
+            测试用例1000条，一个用例执行1分钟，一个测试人员执行需要1000分钟。
+            通常我们会用人力成本换取时间成本，加几个人一起执行，时间就会缩短。
+            如果10人一起执行只需要100分钟，这就是一种分布式场景。
+        场景2:
+            假设有个报名系统，对报名总数统计，数据同时进行修改操作的时候有可能出现问题，
+            需要模拟这个场景，需要多用户并发请求数据。
+        解决:
+            使用分布式并发执行测试用例。分布式插件: pytest-xdist
+            安装及运行:pip install pytest-xdist
+        注意:用例多的时候效果明显，多进程并发执行，同时支持allure
+        执行方式：pytest -n 8   8指的是PCU处理个数
+            如果不知道自己的电脑是几核 (自动调取空闲cpu运行)可以使用 pytest -n auto
+
+●pytest hook介绍
+
+    ●是个函数，在系统消息触时被系统调用
+    ●自动触发机制
+    ●Hook函数的名称是确定的
+    ●pytest有非常多的勾子函数
+    ●使用时直接编写函数体
+
+
+●pytest hook执行顺序   test_demo3.py  conftest.py
+
+    site-package/_pytest/hookspec.py
+
+    pytest_addoption                添加命令行参数，迄吋会先遠取命令行参数
+    pytest_collection_modifyitems   收集測武用例，收集之后(改編碕，改抗行順序)
+    pytest_collection_finish        收集之后的操作
+    pytest_runtest_setup            在凋用 pytest_runtest_call之前凋用
+    pytest_runtest_call             调用抉行測武的用例
+    pytest_runtest_makereport       迄行測試用例,返回setup,call,teardown的抗行結果
+
+hook函数源码路径 ：External Libraries/site-packages/_pytest/hookspec.py
+
+hook执行顺序参考文档：https://ceshiren.com/t/topic/8807
+
+        root
+        └── pytest_cmdline_main
+        ├── pytest_plugin_registered
+        ├── pytest_configure
+        │ └── pytest_plugin_registered
+        ├── pytest_sessionstart
+        │ ├── pytest_plugin_registered
+        │ └── pytest_report_header
+        ├── pytest_collection
+        │ ├── pytest_collectstart
+        │ ├── pytest_make_collect_report
+        │ │ ├── pytest_collect_file
+        │ │ │ └── pytest_pycollect_makemodule
+        │ │ └── pytest_pycollect_makeitem
+        │ │ └── pytest_generate_tests
+        │ │ └── pytest_make_parametrize_id
+        │ ├── pytest_collectreport
+        │ ├── pytest_itemcollected
+        │ ├── pytest_collection_modifyitems
+        │ └── pytest_collection_finish
+        │ └── pytest_report_collectionfinish
+        ├── pytest_runtestloop
+        │ └── pytest_runtest_protocol
+        │ ├── pytest_runtest_logstart
+        │ ├── pytest_runtest_setup
+        │ │ └── pytest_fixture_setup
+        │ ├── pytest_runtest_makereport
+        │ ├── pytest_runtest_logreport
+        │ │ └── pytest_report_teststatus
+        │ ├── pytest_runtest_call
+        │ │ └── pytest_pyfunc_call
+        │ ├── pytest_runtest_teardown
+        │ │ └── pytest_fixture_post_finalizer
+        │ └── pytest_runtest_logfinish
+        ├── pytest_sessionfinish
+        │ └── pytest_terminal_summary
+        └── pytest_unconfigure
+
+
+总结
+
+    1、hook函数名字固定
+    2、hook函数会被自动执行
+    3、执行是有先后顺序的
+    4、pytest定义了很多hook函数，可以在不同阶段实现不同的功能

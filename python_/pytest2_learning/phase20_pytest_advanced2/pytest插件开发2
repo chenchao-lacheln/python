@@ -1,0 +1,55 @@
+pytest编写插件1 -修改默认编码 test_mark1.py  conftest.py
+
+    pytest_collection_modifyitems 收集上来的测试用例实现定制化功能
+    解决问题:
+        自定义用例的执行顺序
+        解决编码问题(中文的测试用例名称)
+        自动添加标签
+
+     # 含有中文的测试用例的名字，改写编码格式
+        for item in  items:
+            item.name = item.name.encode('utf-8').decode('unicode-escape')
+            item._nodeid = item.nodeid.encode('utf-8').decode('unicode-escape')
+
+pytest编写插件2 -添加命令行参数
+
+        def pytest_addoption(parser):
+            mygroup = parser.getgroup("lacheln") #group 将下面所有的option 都展示在这个group下
+            mygroup.addoption("--env",  #注册一个命令行选项
+                              default = "test", #参数默认值
+                              dest = "env",    #存储的变量，为属性命令，可以使用Option对象访问这个值，
+                              help = "set your run env" # 帮助信息，参数的描述信息
+                              )
+        查看：当前文件夹运行pytest --help
+
+
+如何打包发布插件
+
+    打包发布到pypi
+        发布到：www.pypi.org(第三方库发布平台)
+        代码上传到:github
+
+    setup.py配置
+
+    打包项目构成
+        参考文档：https://packaging.python.org/en/latest/tutorials/packaging-projects/
+        源码包
+        setup.py -->>对源代码进行构成，构成成需要的安装包
+        测试包 -->>测试源代码是否是正确的的
+
+    打包命令  demo3
+
+        依赖包安装:
+            pip install setuptools      python 的包管理工具，负责安装和发布，尤其是安装拥有信赖关系的包。
+            pip install wheel           生成*.whl 格式的安装包，本质上也是一个压缩包
+        打包命令:
+            python setup.py sdist bdist_wheel
+
+
+        执行完打包命令后，可以通过pip install dist下面的XX.whl 复制路径  进行安装（pip install /Users/lacheln/PycharmProjects/python_/pytest2/phase20_pytest_advanced2/demo3/pytest-encode/dist/pytest_encode-1.0-py3-none-any.whl）
+        安装成功之后，再次运行 test_encode.py用例，
+        没有安装成功之前，没有正常显示中文格式的编码
+
+    发布命令
+        python3 -m pip instal1 --user --upgrade twine           ##安装twine工具
+        python3 -m twine upload --repository testpypi dist/*    ##上传代码

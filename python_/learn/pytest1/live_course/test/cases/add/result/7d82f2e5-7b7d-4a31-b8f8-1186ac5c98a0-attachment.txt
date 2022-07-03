@@ -1,0 +1,4 @@
+[32mINFO    [0m learn.pytest.live_course.test.utils.log_utils:base.py:18 开始计算
+[32mINFO    [0m learn.pytest.live_course.test.utils.log_utils:test_add_params.py:91 输入数据:99.01,0,期望结果:参数大小超出范围
+[32mINFO    [0m learn.pytest.live_course.test.utils.log_utils:test_add_params.py:97 实际结果:参数大小超出范围
+[32mINFO    [0m learn.pytest.live_course.test.utils.log_utils:base.py:22 结束计算
