@@ -20,7 +20,7 @@
 
 import pytest
 import sys
-sys.path.append('../../../../../..')
+sys.path.append('../../../../../../..')
 
 from learn.pytest1.live_course.test.base.base import Base
 
